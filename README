@@ -1,5 +1,6 @@
 This repository contains following modules:
 
+Parallel::Prefork
 Plack
 Twiggy
 Twiggy::Prefork

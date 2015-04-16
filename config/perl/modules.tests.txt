@@ -17,6 +17,10 @@ Test::More
 Test::Requires
 Test::TCP
 
+# Parallel::Prefork
+Test::Requires
+Test::SharedFork
+
 # Twiggy::Prefork
 Test::More
 Test::TCP
