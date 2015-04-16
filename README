@@ -1,0 +1,12 @@
+This repository contains following modules:
+
+Plack
+Twiggy
+Twiggy::Prefork
+
+... except that the following modules are not included:
+
+Plack::Handler::Apache1
+Plack::Handler::Apache2
+Plack::Handler::CGI
+Plack::Handler::FCGI

@@ -62,11 +62,7 @@ sub guess {
 
     return $env->{PLACK_SERVER} if $env->{PLACK_SERVER};
 
-    if ($env->{PHP_FCGI_CHILDREN} || $env->{FCGI_ROLE} || $env->{FCGI_SOCKET_PATH}) {
-        return "FCGI";
-    } elsif ($env->{GATEWAY_INTERFACE}) {
-        return "CGI";
-    } elsif (exists $INC{"Coro.pm"}) {
+    if (exists $INC{"Coro.pm"}) {
         return "Corona";
     } elsif (exists $INC{"AnyEvent.pm"}) {
         return "Twiggy";
@@ -119,11 +115,6 @@ hashes.
 
 Plack users can specify the specific implementation they want to load
 using the C<PLACK_SERVER> environment variable.
-
-=item PHP_FCGI_CHILDREN, GATEWAY_INTERFACE
-
-If there's one of FastCGI or CGI specific environment variables set,
-use the corresponding server implementation.
 
 =item %INC
 
