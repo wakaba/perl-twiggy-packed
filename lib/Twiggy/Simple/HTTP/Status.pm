@@ -1,4 +1,4 @@
-package HTTP::Status;
+package Twiggy::Simple::HTTP::Status;
 
 use strict;
 require 5.002;   # because we use prototypes

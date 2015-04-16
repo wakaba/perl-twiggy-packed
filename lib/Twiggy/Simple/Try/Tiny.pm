@@ -1,4 +1,4 @@
-package Try::Tiny;
+package Twiggy::Simple::Try::Tiny;
 BEGIN {
   $Try::Tiny::AUTHORITY = 'cpan:NUFFIN';
 }
@@ -90,7 +90,7 @@ sub try (&;@) {
 
   # set up a scope guard to invoke the finally block at the end
   my @guards =
-    map { Try::Tiny::ScopeGuard->_new($_, $failed ? $error : ()) }
+    map { Twiggy::Simple::Try::Tiny::ScopeGuard->_new($_, $failed ? $error : ()) }
     @finally;
 
   # at this point $failed contains a true value if the eval died, even if some
@@ -139,7 +139,7 @@ sub finally (&;@) {
 
 {
   package # hide from PAUSE
-    Try::Tiny::ScopeGuard;
+    Twiggy::Simple::Try::Tiny::ScopeGuard;
 
   use constant UNSTABLE_DOLLARAT => ($] < '5.013002') ? 1 : 0;
 

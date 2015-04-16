@@ -8,7 +8,7 @@ use Carp ();
 use HTTP::Status qw(status_message);
 use URI::Escape ();
 use Plack::Util;
-use Try::Tiny;
+use Twiggy::Simple::Try::Tiny;
 
 my $TRUE  = (1 == 1);
 my $FALSE = !$TRUE;

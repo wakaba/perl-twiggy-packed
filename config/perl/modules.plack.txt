@@ -1,5 +1,4 @@
 Pod::Usage
 Stream::Buffered
-Try::Tiny
 URI::Escape
 parent

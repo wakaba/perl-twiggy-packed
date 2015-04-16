@@ -9,7 +9,6 @@ use Test::TCP;
 use Plack::Loader;
 use Plack::Util;
 use Plack::Request;
-use Try::Tiny;
 use Path::Tiny;
 use Plack::LWPish;
 

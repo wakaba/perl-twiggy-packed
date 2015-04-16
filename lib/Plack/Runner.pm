@@ -3,7 +3,6 @@ use strict;
 use warnings;
 use Carp ();
 use Plack::Util;
-use Try::Tiny;
 
 sub new {
     my $class = shift;

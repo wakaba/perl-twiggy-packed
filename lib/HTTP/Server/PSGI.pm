@@ -7,7 +7,7 @@ use Plack;
 use Plack::HTTPParser qw( parse_http_request );
 use IO::Socket::INET;
 use HTTP::Date;
-use HTTP::Status;
+use Twiggy::Simple::HTTP::Status;
 use List::Util qw(max sum);
 use Plack::Util;
 use Stream::Buffered;
@@ -15,7 +15,6 @@ use Plack::Middleware::ContentLength;
 use POSIX qw(EINTR);
 use Socket qw(IPPROTO_TCP TCP_NODELAY);
 
-use Try::Tiny;
 use Time::HiRes qw(time);
 
 my $alarm_interval;
@@ -204,7 +203,7 @@ sub _handle_response {
         push @lines, "$k: $v\015\012";
     });
 
-    unshift @lines, "HTTP/1.0 $res->[0] @{[ HTTP::Status::status_message($res->[0]) ]}\015\012";
+    unshift @lines, "HTTP/1.0 $res->[0] @{[ Twiggy::Simple::HTTP::Status::status_message($res->[0]) ]}\015\012";
     push @lines, "\015\012";
 
     $self->write_all($conn, join('', @lines), $self->{timeout})

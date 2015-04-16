@@ -4,16 +4,8 @@ use parent qw(Exporter);
 
 our @EXPORT = qw( parse_http_request );
 
-use Try::Tiny;
-
-{
-    if (!$ENV{PLACK_HTTP_PARSER_PP} && try { require HTTP::Parser::XS; 1 }) {
-        *parse_http_request = \&HTTP::Parser::XS::parse_http_request;
-    } else {
         require Plack::HTTPParser::PP;
         *parse_http_request = \&Plack::HTTPParser::PP::parse_http_request;
-    }
-}
 
 1;
 
