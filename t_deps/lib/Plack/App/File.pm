@@ -6,7 +6,7 @@ use File::Spec::Unix;
 use Cwd ();
 use Plack::Util;
 use Plack::MIME;
-use HTTP::Date;
+use Twiggy::Simple::HTTP::Date;
 
 use Plack::Util::Accessor qw( root file content_type encoding );
 
@@ -106,7 +106,7 @@ sub serve_path {
         [
             'Content-Type'   => $content_type,
             'Content-Length' => $stat[7],
-            'Last-Modified'  => HTTP::Date::time2str( $stat[9] )
+            'Last-Modified'  => Twiggy::Simple::HTTP::Date::time2str( $stat[9] )
         ],
         $fh,
     ];
