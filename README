@@ -18,15 +18,17 @@ Plack::Handler::FCGI
 Plack::Loader::Delayed
 Plack::Loader::Restarter
 Plack::Loader::Shotgun
-Most Plack::Middleware modules
+Plack::Response
 Plack::TempBuffer
-Plack::Test::Server
+Most Plack::Middleware modules
 
 Following modules are included only for tests:
 
 Plack::App::File
 Plack::LWPish
-Plack::Test::Suite
+Plack::MIME
+Plack::Request
+Plack::Test
 
 Also, some magics are removed from following module:
 
