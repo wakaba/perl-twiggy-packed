@@ -1,7 +1,6 @@
 # Plack
 Test::More
 Test::Requires
-MIME::Types
 IO::Handle::Util
 LWP::Protocol::http10
 LWP::UserAgent

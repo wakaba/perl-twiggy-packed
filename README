@@ -19,6 +19,7 @@ Plack::Loader::Delayed
 Plack::Loader::Restarter
 Plack::Loader::Shotgun
 Most Plack::Middleware modules
+Plack::TempBuffer
 
 Also, some magics are removed from following module:
 

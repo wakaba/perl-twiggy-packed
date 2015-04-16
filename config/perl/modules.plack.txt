@@ -1,6 +1,3 @@
-Devel::StackTrace
-Devel::StackTrace::AsHTML
-Filesys::Notify::Simple
 HTTP::Body
 HTTP::Message
 HTTP::Headers::Fast
@@ -12,5 +9,4 @@ Try::Tiny
 URI
 parent
 Path::Tiny
-Apache::LogFormat::Compiler
 HTTP::Tiny

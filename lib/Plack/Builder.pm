@@ -5,6 +5,7 @@ our @EXPORT = qw( builder add enable );
 
 use Carp ();
 use Scalar::Util ();
+use Plack::Util ();
 
 sub new {
     my $class = shift;
