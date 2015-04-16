@@ -27,6 +27,7 @@ Most Plack::Middleware modules
 Following modules are included only for tests:
 
 HTTP::Message::PSGI
+Parallel::Prefork::SpareWorkers
 Plack::App::File
 Plack::LWPish
 Plack::MIME

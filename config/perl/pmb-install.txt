@@ -17,13 +17,10 @@ HTTP::Cookies~6.01
 Data::OptList~0.109
 IO::Socket::IP~0.37
 HTTP::Response~6.04
-Signal::Mask~0.008
 Test::use::ok~0.16
 WWW::RobotRules~6.02
 LWP::Protocol~6.13
 Test::Requires~0.08
-Scope::Guard~0.20
-IPC::Signal~1.00
 URI::Escape~3.31
 File::Spec~3.47
 LWP::MediaTypes~6.02
@@ -34,10 +31,9 @@ HTML::Entities~3.69
 IO::Handle::Util~0.01
 Socket~2.018
 Path::Tiny~0.068
-Net::HTTP~6.07
 Hash::MultiValue~0.16
+Net::HTTP~6.07
 IO::String~1.08
-Class::Accessor::Lite~0.06
 HTTP::Date~6.02
 asa~1.03
 Proc::Wait3~0.04
