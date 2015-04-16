@@ -6,7 +6,33 @@ Twiggy::Prefork
 
 ... except that the following modules are not included:
 
+Plack::App::CGIBin
+Plack::App::Cascade
+Plack::App::Directory
+Plack::App::PSGIBin
+Plack::App::WrapCGI
 Plack::Handler::Apache1
 Plack::Handler::Apache2
 Plack::Handler::CGI
 Plack::Handler::FCGI
+Plack::Middleware::AccessLog::Timed
+Plack::Middleware::Auth::Basic
+Plack::Middleware::Chunked
+Plack::Middleware::ConditionalGET
+Plack::Middleware::ContentMD5
+Plack::Middleware::ErrorDocument
+Plack::Middleware::HTTPExceptions
+Plack::Middleware::Head
+Plack::Middleware::IIS6ScriptNameFix
+Plack::Middleware::IIS7KeepAliveFix
+Plack::Middleware::JSONP
+Plack::Middleware::LighttpdScriptNameFix
+Plack::Middleware::Log4perl
+Plack::Middleware::LogDispatch
+Plack::Middleware::NullLogger
+Plack::Middleware::RearrangeHeaders
+Plack::Middleware::Recursive
+Plack::Middleware::Refresh
+Plack::Middleware::SimpleContentFilter
+Plack::Middleware::SimpleLogger
+Plack::Middleware::XSendfile

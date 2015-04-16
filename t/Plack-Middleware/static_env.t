@@ -4,7 +4,6 @@ use Plack::Test;
 use HTTP::Request::Common;
 
 use Plack::Middleware::AccessLog;
-use Plack::Middleware::Auth::Basic;
 use Plack::Middleware::Static;
 
 my $app = sub {
@@ -13,7 +12,6 @@ my $app = sub {
 };
 
 $app = Plack::Middleware::Static->wrap($app, path => qr!^/t/!, root => ".");
-$app = Plack::Middleware::Auth::Basic->wrap($app, authenticator => sub { 1 });
 
 my $line;
 $app = Plack::Middleware::AccessLog->wrap($app, logger => sub { $line = shift });
@@ -21,10 +19,10 @@ $app = Plack::Middleware::AccessLog->wrap($app, logger => sub { $line = shift })
 test_psgi app => $app, client => sub {
     my $cb = shift;
 
-    my $res = $cb->(GET "http://localhost/t/test.txt", Authorization => "Basic YWRtaW46czNjcjN0");
+    my $res = $cb->(GET "http://localhost/t/test.txt");
     like $res->content, qr/foo/;
 
-    like $line, qr/ admin /;
+    like $line, qr/ /;
 };
 
 done_testing;
