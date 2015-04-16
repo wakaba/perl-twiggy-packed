@@ -1,3 +1,19 @@
+# Plack
+Test::More
+Test::Requires
+Authen::Simple::Passwd
+MIME::Types
+CGI::Emulate::PSGI
+CGI::Compile
+IO::Handle::Util
+LWP::Protocol::http10
+Log::Log4perl
+HTTP::Server::Simple::PSGI
+HTTP::Request::AsCGI
+LWP::UserAgent
+Module::Refresh
+HTTP::Headers::Fast
+
 # Twiggy
 Test::More
 Test::Requires
