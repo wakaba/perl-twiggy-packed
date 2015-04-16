@@ -5,6 +5,9 @@ IO::Handle::Util
 LWP::Protocol::http10
 LWP::UserAgent
 HTTP::Headers::Fast
+HTTP::Tiny
+Path::Tiny
+Test::TCP
 
 # Twiggy
 Test::More

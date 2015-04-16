@@ -13,7 +13,7 @@ use Try::Tiny;
 use Path::Tiny;
 use Plack::LWPish;
 
-my $share_dir = path (__FILE__)->parent->parent->parent->parent->child ('share');
+my $share_dir = path (__FILE__)->parent->parent->parent->parent->parent->child ('share');
 
 $ENV{PLACK_TEST_SCRIPT_NAME} = '';
 

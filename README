@@ -20,6 +20,13 @@ Plack::Loader::Restarter
 Plack::Loader::Shotgun
 Most Plack::Middleware modules
 Plack::TempBuffer
+Plack::Test::Server
+
+Following modules are included only for tests:
+
+Plack::App::File
+Plack::LWPish
+Plack::Test::Suite
 
 Also, some magics are removed from following module:
 

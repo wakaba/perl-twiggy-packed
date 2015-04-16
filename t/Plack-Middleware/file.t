@@ -5,7 +5,7 @@ use HTTP::Request::Common;
 use Plack::App::File;
 use FindBin qw($Bin);
 
-my $app = Plack::App::File->new(file => 'Changes');
+my $app = Plack::App::File->new(file => 'Changes-plack');
 
 test_psgi $app, sub {
     my $cb = shift;
@@ -20,7 +20,7 @@ test_psgi $app, sub {
 };
 
 my $app_content_type = Plack::App::File->new(
-    file => 'Changes',
+    file => 'Changes-plack',
     content_type => 'text/x-changes'
 );
 

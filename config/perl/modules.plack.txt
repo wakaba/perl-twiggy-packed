@@ -4,9 +4,6 @@ HTTP::Headers::Fast
 Hash::MultiValue
 Pod::Usage
 Stream::Buffered
-Test::TCP
 Try::Tiny
 URI
 parent
-Path::Tiny
-HTTP::Tiny
