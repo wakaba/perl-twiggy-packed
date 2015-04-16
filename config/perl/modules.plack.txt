@@ -1,9 +1,5 @@
-HTTP::Body
-HTTP::Message
-HTTP::Headers::Fast
-Hash::MultiValue
 Pod::Usage
 Stream::Buffered
 Try::Tiny
-URI
+URI::Escape
 parent

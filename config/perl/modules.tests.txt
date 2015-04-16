@@ -4,10 +4,15 @@ Test::Requires
 IO::Handle::Util
 LWP::Protocol::http10
 LWP::UserAgent
+HTTP::Body
 HTTP::Headers::Fast
+Hash::MultiValue
 HTTP::Tiny
 Path::Tiny
+Stream::Buffered
 Test::TCP
+URI
+URI::Escape
 
 # Twiggy
 Test::More
