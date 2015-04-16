@@ -1,3 +1,5 @@
+* Perl modules
+
 This repository contains following modules:
 
 Parallel::Prefork
@@ -51,3 +53,12 @@ enable_if
 mount
 
 Support for |Server::Starter| is removed.
+
+* Dependency
+
+These modules require following modules:
+
+AnyEvent
+parent
+Pod::Usage
+Proc::Wait3
