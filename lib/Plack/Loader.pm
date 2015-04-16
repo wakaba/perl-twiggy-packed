@@ -62,15 +62,7 @@ sub guess {
 
     return $env->{PLACK_SERVER} if $env->{PLACK_SERVER};
 
-    if (exists $INC{"Coro.pm"}) {
-        return "Corona";
-    } elsif (exists $INC{"AnyEvent.pm"}) {
-        return "Twiggy";
-    } elsif (exists $INC{"POE.pm"}) {
-        return "POE";
-    } else {
-        return "Standalone";
-    }
+    return "Standalone";
 }
 
 sub env { \%ENV }

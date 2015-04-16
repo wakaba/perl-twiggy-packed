@@ -15,24 +15,23 @@ Plack::Handler::Apache1
 Plack::Handler::Apache2
 Plack::Handler::CGI
 Plack::Handler::FCGI
-Plack::Middleware::AccessLog::Timed
-Plack::Middleware::Auth::Basic
-Plack::Middleware::Chunked
-Plack::Middleware::ConditionalGET
-Plack::Middleware::ContentMD5
-Plack::Middleware::ErrorDocument
-Plack::Middleware::HTTPExceptions
-Plack::Middleware::Head
-Plack::Middleware::IIS6ScriptNameFix
-Plack::Middleware::IIS7KeepAliveFix
-Plack::Middleware::JSONP
-Plack::Middleware::LighttpdScriptNameFix
-Plack::Middleware::Log4perl
-Plack::Middleware::LogDispatch
-Plack::Middleware::NullLogger
-Plack::Middleware::RearrangeHeaders
-Plack::Middleware::Recursive
-Plack::Middleware::Refresh
-Plack::Middleware::SimpleContentFilter
-Plack::Middleware::SimpleLogger
-Plack::Middleware::XSendfile
+Plack::Loader::Delayed
+Plack::Loader::Restarter
+Plack::Loader::Shotgun
+Most Plack::Middleware modules
+
+Also, some magics are removed from following module:
+
+Plack::Loader
+Plack::Runner
+
+Following |plackup| options are removed:
+
+--access-log
+--default-middleware
+--path
+
+Following |Plack::Builder| commands are removed:
+
+enable_if
+mount

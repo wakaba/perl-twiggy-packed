@@ -7,7 +7,6 @@ use HTTP::Request::Common;
 use Test::More;
 use Test::TCP;
 use Plack::Loader;
-use Plack::Middleware::Lint;
 use Plack::Util;
 use Plack::Request;
 use Try::Tiny;
@@ -746,7 +745,6 @@ sub run_server_tests {
         $server = sub {
             my($port, $app) = @_;
             my $server = Plack::Loader->load($server_class, port => $port, host => "127.0.0.1", %args);
-            $app = Plack::Middleware::Lint->wrap($app);
             $server->run($app);
         }
     }
