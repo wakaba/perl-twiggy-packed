@@ -23,7 +23,6 @@ Test::TCP
 Test::More
 Test::TCP
 LWP::UserAgent
-Plack::Test::Suite
 Test::Requires
 Test::SharedFork
 Capture::Tiny
