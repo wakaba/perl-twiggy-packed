@@ -1,7 +1,7 @@
 package Plack::HTTPParser::PP;
 use strict;
 use warnings;
-use URI::Escape;
+use Twiggy::Simple::URI::Escape;
 
 sub parse_http_request {
     my($chunk, $env) = @_;
@@ -54,7 +54,7 @@ sub _parse_header {
     my($path, $query) = ( $uri =~ /^([^?]*)(?:\?(.*))?$/s );
     for ($path, $query) { s/\#.*$// if defined && length } # dumb clients sending URI fragments
 
-    $env->{PATH_INFO}    = URI::Escape::uri_unescape($path);
+    $env->{PATH_INFO}    = Twiggy::Simple::URI::Escape::uri_unescape($path);
     $env->{QUERY_STRING} = $query || '';
     $env->{SCRIPT_NAME}  = '';
 

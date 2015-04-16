@@ -9,10 +9,8 @@ HTTP::Headers::Fast
 Hash::MultiValue
 HTTP::Tiny
 Path::Tiny
-Stream::Buffered
 Test::TCP
 URI
-URI::Escape
 
 # Twiggy
 Test::More

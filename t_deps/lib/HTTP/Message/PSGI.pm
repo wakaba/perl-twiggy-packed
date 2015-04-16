@@ -6,7 +6,7 @@ our @EXPORT = qw( req_to_psgi res_from_psgi );
 
 use Carp ();
 use HTTP::Status qw(status_message);
-use URI::Escape ();
+use Twiggy::Simple::URI::Escape ();
 use Plack::Util;
 use Twiggy::Simple::Try::Tiny;
 
@@ -44,7 +44,7 @@ sub req_to_psgi {
     }
 
     my $env = {
-        PATH_INFO         => URI::Escape::uri_unescape($uri->path || '/'),
+        PATH_INFO         => Twiggy::Simple::URI::Escape::uri_unescape($uri->path || '/'),
         QUERY_STRING      => $uri->query || '',
         SCRIPT_NAME       => '',
         SERVER_NAME       => $uri->host,

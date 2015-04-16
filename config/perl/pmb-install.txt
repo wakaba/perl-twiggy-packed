@@ -4,9 +4,8 @@ Pod::Usage~1.67
 Sub::Exporter~0.987
 IO::HTML~1.001
 File::Listing~6.04
-Stream::Buffered~0.03
-Test::TCP~2.11
 LWP::Protocol::http10~6.03
+Test::TCP~2.11
 HTTP::Tiny~0.054
 HTTP::Daemon~6.01
 List::MoreUtils~0.410

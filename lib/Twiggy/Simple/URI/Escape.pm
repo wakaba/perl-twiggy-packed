@@ -1,4 +1,4 @@
-package URI::Escape;
+package Twiggy::Simple::URI::Escape;
 
 use strict;
 use warnings;
@@ -214,7 +214,7 @@ sub escape_char {
         unshift(@_, $s);
     }
 
-    return join '', @URI::Escape::escapes{split //, $_[0]};
+    return join '', @Twiggy::Simple::URI::Escape::escapes{split //, $_[0]};
 }
 
 1;

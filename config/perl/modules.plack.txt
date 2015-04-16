@@ -1,4 +1,2 @@
 Pod::Usage
-Stream::Buffered
-URI::Escape
 parent

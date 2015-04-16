@@ -3,6 +3,7 @@ This repository contains following modules:
 Plack
 Twiggy
 Twiggy::Prefork
+Stream::Buffered
 
 ... except that the following modules are not included:
 
