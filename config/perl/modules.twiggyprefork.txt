@@ -1,3 +1,2 @@
 Parallel::Prefork
 AnyEvent
-Server::Starter

@@ -11,8 +11,7 @@ sub new {
 sub run {
     my ($self, $app) = @_;
 
-    my $class = $ENV{SERVER_STARTER_PORT} ?
-        'Twiggy::Prefork::Server::SS' : 'Twiggy::Prefork::Server';
+    my $class = 'Twiggy::Prefork::Server';
     eval "require $class";
     die if $@;
 

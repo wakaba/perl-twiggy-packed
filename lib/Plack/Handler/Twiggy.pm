@@ -9,8 +9,7 @@ sub new {
 sub run {
     my ($self, $app) = @_;
 
-    my $class = $ENV{SERVER_STARTER_PORT} ?
-        'Twiggy::Server::SS' : 'Twiggy::Server';
+    my $class = 'Twiggy::Server';
     eval "require $class";
     die if $@;
 

@@ -46,3 +46,5 @@ Following |Plack::Builder| commands are removed:
 
 enable_if
 mount
+
+Support for |Server::Starter| is removed.
