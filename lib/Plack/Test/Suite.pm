@@ -2,7 +2,6 @@ package Plack::Test::Suite;
 use strict;
 use warnings;
 use Digest::MD5;
-use File::ShareDir;
 use HTTP::Request;
 use HTTP::Request::Common;
 use Test::More;
@@ -12,9 +11,10 @@ use Plack::Middleware::Lint;
 use Plack::Util;
 use Plack::Request;
 use Try::Tiny;
+use Path::Tiny;
 use Plack::LWPish;
 
-my $share_dir = try { File::ShareDir::dist_dir('Plack') } || 'share';
+my $share_dir = path (__FILE__)->parent->parent->parent->parent->child ('share');
 
 $ENV{PLACK_TEST_SCRIPT_NAME} = '';
 

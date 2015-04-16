@@ -1,14 +1,9 @@
 # Plack
 Test::More
 Test::Requires
-Authen::Simple::Passwd
 MIME::Types
-CGI::Emulate::PSGI
-CGI::Compile
 IO::Handle::Util
 LWP::Protocol::http10
-HTTP::Server::Simple::PSGI
-HTTP::Request::AsCGI
 LWP::UserAgent
 HTTP::Headers::Fast
 

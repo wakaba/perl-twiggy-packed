@@ -1,6 +1,5 @@
 Devel::StackTrace
 Devel::StackTrace::AsHTML
-File::ShareDir
 Filesys::Notify::Simple
 HTTP::Body
 HTTP::Message
@@ -12,5 +11,6 @@ Test::TCP
 Try::Tiny
 URI
 parent
+Path::Tiny
 Apache::LogFormat::Compiler
 HTTP::Tiny
