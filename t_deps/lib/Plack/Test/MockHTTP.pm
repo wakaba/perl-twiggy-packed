@@ -6,7 +6,7 @@ use Carp;
 use HTTP::Request;
 use HTTP::Response;
 use HTTP::Message::PSGI;
-use Twiggy::Simple::Try::Tiny;
+use Twiggy::Packed::Try::Tiny;
 
 sub new {
     my($class, $app) = @_;

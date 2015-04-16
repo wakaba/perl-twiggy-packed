@@ -1,4 +1,4 @@
-package Twiggy::Simple::HTTP::Date;
+package Twiggy::Packed::HTTP::Date;
 use strict;
 use warnings;
 

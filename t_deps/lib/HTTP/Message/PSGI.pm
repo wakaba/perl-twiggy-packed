@@ -6,9 +6,9 @@ our @EXPORT = qw( req_to_psgi res_from_psgi );
 
 use Carp ();
 use HTTP::Status qw(status_message);
-use Twiggy::Simple::URI::Escape ();
+use Twiggy::Packed::URI::Escape ();
 use Plack::Util;
-use Twiggy::Simple::Try::Tiny;
+use Twiggy::Packed::Try::Tiny;
 
 my $TRUE  = (1 == 1);
 my $FALSE = !$TRUE;
@@ -44,7 +44,7 @@ sub req_to_psgi {
     }
 
     my $env = {
-        PATH_INFO         => Twiggy::Simple::URI::Escape::uri_unescape($uri->path || '/'),
+        PATH_INFO         => Twiggy::Packed::URI::Escape::uri_unescape($uri->path || '/'),
         QUERY_STRING      => $uri->query || '',
         SCRIPT_NAME       => '',
         SERVER_NAME       => $uri->host,

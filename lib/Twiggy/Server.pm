@@ -3,7 +3,7 @@ use strict;
 use warnings;
 
 use Scalar::Util qw(blessed weaken);
-use Twiggy::Simple::Try::Tiny;
+use Twiggy::Packed::Try::Tiny;
 use Carp;
 
 use Socket qw(IPPROTO_TCP TCP_NODELAY);
@@ -15,7 +15,7 @@ use AnyEvent::Handle;
 use AnyEvent::Socket;
 use AnyEvent::Util qw(WSAEWOULDBLOCK);
 
-use Twiggy::Simple::HTTP::Status;
+use Twiggy::Packed::HTTP::Status;
 use Plack::HTTPParser qw(parse_http_request);
 use Plack::Util;
 
@@ -399,7 +399,7 @@ sub _write_headers {
 sub _format_headers {
     my ( $self, $status, $headers ) = @_;
 
-    my $hdr = sprintf "HTTP/1.0 %d %s\015\012", $status, Twiggy::Simple::HTTP::Status::status_message($status);
+    my $hdr = sprintf "HTTP/1.0 %d %s\015\012", $status, Twiggy::Packed::HTTP::Status::status_message($status);
 
     my $i = 0;
 

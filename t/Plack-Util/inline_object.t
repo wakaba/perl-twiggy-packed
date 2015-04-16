@@ -1,6 +1,6 @@
 use Test::More;
 use Plack::Util;
-use Twiggy::Simple::Try::Tiny;
+use Twiggy::Packed::Try::Tiny;
 
 my $counter;
 my $object = Plack::Util::inline_object(

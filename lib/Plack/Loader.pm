@@ -2,7 +2,7 @@ package Plack::Loader;
 use strict;
 use Carp ();
 use Plack::Util;
-use Twiggy::Simple::Try::Tiny;
+use Twiggy::Packed::Try::Tiny;
 
 sub new {
     my $class = shift;

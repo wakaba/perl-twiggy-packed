@@ -12,7 +12,7 @@ use HTTP::Body;
 use Plack::Request::Upload;
 use Stream::Buffered;
 use URI;
-use Twiggy::Simple::URI::Escape ();
+use Twiggy::Packed::URI::Escape ();
 
 sub new {
     my($class, $env) = @_;
@@ -66,7 +66,7 @@ sub cookies {
         # trim leading trailing whitespace
         $pair =~ s/^\s+//; $pair =~ s/\s+$//;
 
-        my ($key, $value) = map Twiggy::Simple::URI::Escape::uri_unescape($_), split( "=", $pair, 2 );
+        my ($key, $value) = map Twiggy::Packed::URI::Escape::uri_unescape($_), split( "=", $pair, 2 );
 
         # Take the first one like CGI.pm or rack do
         $results{$key} = $value unless exists $results{$key};
@@ -88,7 +88,7 @@ sub _parse_query {
     if (defined $query_string) {
         $query_string =~ s/\A[&;]+//;
         @query =
-            map { s/\+/ /g; Twiggy::Simple::URI::Escape::uri_unescape($_) }
+            map { s/\+/ /g; Twiggy::Packed::URI::Escape::uri_unescape($_) }
             map { /=/ ? split(/=/, $_, 2) : ($_ => '')}
             split(/[&;]+/, $query_string);
     }
@@ -204,7 +204,7 @@ sub uri {
     # See RFC 3986 before modifying.
     my $path_escape_class = q{^/;:@&=A-Za-z0-9\$_.+!*'(),-};
 
-    my $path = Twiggy::Simple::URI::Escape::uri_escape($self->env->{PATH_INFO} || '', $path_escape_class);
+    my $path = Twiggy::Packed::URI::Escape::uri_escape($self->env->{PATH_INFO} || '', $path_escape_class);
     $path .= '?' . $self->env->{QUERY_STRING}
         if defined $self->env->{QUERY_STRING} && $self->env->{QUERY_STRING} ne '';
 

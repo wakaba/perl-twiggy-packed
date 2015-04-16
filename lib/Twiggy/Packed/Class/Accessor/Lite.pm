@@ -1,4 +1,4 @@
-package Twiggy::Simple::Class::Accessor::Lite;
+package Twiggy::Packed::Class::Accessor::Lite;
 
 use strict;
 

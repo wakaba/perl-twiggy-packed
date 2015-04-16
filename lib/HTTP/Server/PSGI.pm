@@ -6,8 +6,8 @@ use Carp ();
 use Plack;
 use Plack::HTTPParser qw( parse_http_request );
 use IO::Socket::INET;
-use Twiggy::Simple::HTTP::Date;
-use Twiggy::Simple::HTTP::Status;
+use Twiggy::Packed::HTTP::Date;
+use Twiggy::Packed::HTTP::Status;
 use List::Util qw(max sum);
 use Plack::Util;
 use Stream::Buffered;
@@ -194,7 +194,7 @@ sub _handle_response {
     my($self, $res, $conn) = @_;
 
     my @lines = (
-        "Date: @{[Twiggy::Simple::HTTP::Date::time2str()]}\015\012",
+        "Date: @{[Twiggy::Packed::HTTP::Date::time2str()]}\015\012",
         "Server: $self->{server_software}\015\012",
     );
 
@@ -203,7 +203,7 @@ sub _handle_response {
         push @lines, "$k: $v\015\012";
     });
 
-    unshift @lines, "HTTP/1.0 $res->[0] @{[ Twiggy::Simple::HTTP::Status::status_message($res->[0]) ]}\015\012";
+    unshift @lines, "HTTP/1.0 $res->[0] @{[ Twiggy::Packed::HTTP::Status::status_message($res->[0]) ]}\015\012";
     push @lines, "\015\012";
 
     $self->write_all($conn, join('', @lines), $self->{timeout})
