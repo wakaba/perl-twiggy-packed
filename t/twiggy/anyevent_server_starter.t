@@ -5,6 +5,11 @@ use Test::TCP;
 use LWP::UserAgent;
 use Server::Starter qw(start_server);
 
+BEGIN {
+    plan skip_all => 'Slow test skipped unless $ENV{TEST_SLOW} is set'
+        unless $ENV{TEST_SLOW};
+}
+
 test_tcp(
     server => sub {
         my $port = shift;
