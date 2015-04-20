@@ -315,7 +315,7 @@ sub _run_app {
         Carp::carp("Returning AnyEvent condvar is deprecated and will be removed in the next release of Twiggy. Use the streaming callback interface intstead.");
         $res->cb(sub { $self->_write_psgi_response($sock, shift->recv) });
     } elsif ( ref $res eq 'CODE' ) {
-        my $created_writer;
+        $self->{exit_guard}->begin;
 
         $res->(
             sub {
@@ -329,7 +329,7 @@ sub _run_app {
                     $self->_flush($sock);
 
                     my $writer = Twiggy::Writer->new($sock, $self->{exit_guard});
-                    $created_writer = 1;
+                    $self->{exit_guard}->end;
 
                     my $buf = $self->_format_headers($status, $headers);
                     $writer->write($$buf);
@@ -344,9 +344,7 @@ sub _run_app {
             $sock,
         );
 
-        if($created_writer) {
-            $self->{exit_guard}->end; # normally _write_psgi_response calls this, but it doesn't get called when we use a writer!
-        }
+        $self->{exit_guard}->end;
     } else {
         croak("Unknown response type: $res");
     }
