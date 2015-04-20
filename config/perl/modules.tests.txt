@@ -28,3 +28,4 @@ LWP::UserAgent
 Test::Requires
 Test::SharedFork
 Capture::Tiny
+AnyEvent::HTTP
