@@ -613,9 +613,6 @@ sub write { $_[0]{handle}->push_write($_[1]) }
 sub close {
     my $self = shift;
 
-    my $exit_guard = delete $self->{exit_guard};
-    $exit_guard->end if $exit_guard;
-
     my $handle = delete $self->{handle};
     if ($handle) {
         $handle->on_drain;
@@ -629,7 +626,12 @@ sub close {
     }
 }
 
-sub DESTROY { $_[0]->close }
+sub DESTROY {
+    my $exit_guard = delete $_[0]->{exit_guard};
+    $exit_guard->end if $exit_guard;
+
+    $_[0]->close;
+}
 
 package Twiggy::Server;
 
