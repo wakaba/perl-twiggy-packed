@@ -16,6 +16,8 @@ use Twiggy::Packed::Class::Accessor::Lite (
 
 our $VERSION = '0.17';
 
+our $BeforeSignalAction ||= {};
+
 sub new {
     my $klass = shift;
     my $opts = @_ == 1 ? $_[0] : +{ @_ };
@@ -103,7 +105,8 @@ sub start {
     }
     # send signals to workers
     if (my $action = $self->_action_for($self->signal_received)) {
-        my ($sig, $interval) = @$action;
+        my ($sig, $interval, $orig_sig) = @$action;
+        ($BeforeSignalAction->{$orig_sig} || sub { })->();
         if ($interval) {
             # fortunately we are the only one using delayed_task, so implement
             # this setup code idempotent and replace the already-registered
@@ -185,7 +188,7 @@ sub _action_for {
     my $t = $self->{trap_signals}{$sig}
         or return undef;
     $t = [$t, 0] unless ref $t;
-    return $t;
+    return [$t->[0], $t->[1], $sig];
 }
 
 sub wait_all_children {

@@ -54,6 +54,10 @@ mount
 
 Support for |Server::Starter| is removed.
 
+Following feature is added:
+
+$Parallel::Prefork::BeforeSignalAction
+
 * Dependency
 
 These modules require following modules:
