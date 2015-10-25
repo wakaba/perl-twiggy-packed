@@ -598,6 +598,7 @@ sub run {
 }
 
 package Twiggy::Writer;
+use Errno qw(EPIPE);
 use AnyEvent::Handle;
 
 sub new {
@@ -605,7 +606,13 @@ sub new {
 
     $exit->begin if $exit;
 
-    bless { handle => AnyEvent::Handle->new( fh => $socket ), exit_guard => $exit }, $class;
+    my $w;
+    $w = bless { handle => AnyEvent::Handle->new( fh => $socket, on_error => sub {
+      return if $_[0] == EPIPE;
+      $_[0]->destroy;
+      delete $w->{handle};
+    } ), exit_guard => $exit }, $class;
+    return $w;
 }
 
 sub write { $_[0]{handle}->push_write($_[1]) }
@@ -616,7 +623,6 @@ sub close {
     my $handle = delete $self->{handle};
     if ($handle) {
         $handle->on_drain;
-        $handle->on_error;
 
         $handle->on_drain(sub {
             shutdown $_[0]->fh, 1;
