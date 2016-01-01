@@ -397,7 +397,7 @@ sub _write_headers {
 sub _format_headers {
     my ( $self, $status, $headers ) = @_;
 
-    my $hdr = sprintf "HTTP/1.0 %d %s\015\012", $status, Twiggy::Packed::HTTP::Status::status_message($status);
+    my $hdr = sprintf "HTTP/1.0 %d %s\015\012", $status, Twiggy::Packed::HTTP::Status::status_message($status) || $status;
 
     my $i = 0;
 
